@@ -10,7 +10,7 @@ function pesquisarFilme(e)
 
 function buscarFilme(filmePesquisa)
 {
-    axios.get('http://www.omdbapi.com/?apikey=c42920a8&s' + filmePesquisa)
+    axios.get('http://www.omdbapi.com/?s=' + filmePesquisa + '&apikey=c42920a8')
   .then(function (response) {
     console.log(response);
     var filmes = response.data.Search;
@@ -19,10 +19,10 @@ function buscarFilme(filmePesquisa)
     for(var i=0; i < filmes.length; i++){
         mostrarFilmes += `
             <div class="col-sm-6 col-md-4">
-                <div class="thumbnail>
-                    <img src"${filmes[i].Poster}" class="img-thumbnail">
+                <div class="thumbnail">
+                    <img src="${filmes[i].Poster}" class="img-thumbnail">
                     <h4>${filmes[i].Title}</h4>
-                    <p><a href="#" class="btn btn-primary role=button">Ver detalhes</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Ver detalhes</a></p>
                 </div>
             </div>
         `;
